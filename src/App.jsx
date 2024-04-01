@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
-import VideoPlayer from "./components/videoModal/videoPlayer";
 import ChatPage from "./pages/ChatPage.jsx";
 import Cookies from "js-cookie";
 import { Store } from "./redux/store.js";
