@@ -11,7 +11,7 @@ function VideoPlayer({ info, id, showVideo }) {
   const [callEnded, setCallEnded] = useState(false);
   const [stream, setStream] = useState();
   const [name, setName] = useState("");
-  const [call, setCall] = useState({});
+  const [call, setCall] = useState({ isReceivingCall: false, from :"", name: "", signal: "" });
   const [me, setMe] = useState("");
 
   const myVideo = useRef();
@@ -40,6 +40,7 @@ function VideoPlayer({ info, id, showVideo }) {
 
       socket.on("callUser", ({ from, name: callerName, signal }) => {
         setCall({ isReceivingCall: true, from, name: callerName, signal });
+        console.log("someone is calling!?")
       });
     } else {
       console.error("getUserMedia is not supported in this browser.");
