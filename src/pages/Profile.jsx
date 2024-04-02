@@ -6,7 +6,7 @@ import PeopleCard from "../components/Cards/PeopleCard.jsx";
 import ProfileCard from "../components/Cards/ProfileCard.jsx";
 import axios from "axios";
 import ChatCard from "../components/Cards/ChatCard.jsx";
-import VideoPlayer from "../components/videoModal/videoPlayer.jsx";
+import VideoPlayer from "../components/videoModal/VideoPlayer.jsx"
 import Notification from "../components/notification/Notification.jsx";
 import Loading from "../components/loader/Loading.jsx";
 import { HTTP } from "../server.js";
