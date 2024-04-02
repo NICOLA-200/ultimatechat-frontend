@@ -9,7 +9,7 @@ const socket = io("http://localhost:8800");
 function VideoPlayer({ info, id, showVideo }) {
   // const [callAccepted, setCallAccepted] = useState(false);
   // const [callEnded, setCallEnded] = useState(false);
-  // const [stream, setStream] = useState();
+  const [stream, setStream] = useState();
   // const [name, setName] = useState("");
   const [call, setCall] = useState({});
   const [me, setMe] = useState("");
@@ -118,7 +118,7 @@ function VideoPlayer({ info, id, showVideo }) {
 
       <button
         className="rounded-full z-50 w-8 h-8 bg-green-600 flex justify-center items-center absolute xl:right-20 right-[45%] bottom-12"
-        onClick={callUser(id)}
+        // onClick={callUser(id)}
       >
         <IoCall title="cancel video" />
       </button>
