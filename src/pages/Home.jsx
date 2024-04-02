@@ -11,7 +11,7 @@ export default function Home() {
   console.log(isAuthenticated);
 
   return (
-    <div className="px-[2rem]  mx-20">
+    <div className="px-[2rem]  xl:mx-20">
       <BackGround />
       <Navbar />
 

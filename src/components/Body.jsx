@@ -25,7 +25,7 @@ export default function () {
           alt=""
           width={300}
           height={300}
-          className="border-[0.5rem] md:flex-1 rounded-[50%] min-w-[100px] min-h-[100px]  z-10 border-black"
+          className="border-[0.5rem] md:flex-1 rounded-[50%] min-w-[180px] min-h-[180px]  z-10 border-black"
         />
       </div>
     </div>
