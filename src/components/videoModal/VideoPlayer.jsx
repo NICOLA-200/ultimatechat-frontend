@@ -64,7 +64,7 @@ function VideoPlayer({ info, id, showVideo }) {
   const answerCall = () => {
     setCallAccepted(true);
 
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+    const peer = new Peer({ initiator: false, trickle: true, stream });
 
     peer.on("signal", (data) => {
       console.log(call);
@@ -82,7 +82,7 @@ function VideoPlayer({ info, id, showVideo }) {
 
   const callUser = () => {
     setCallingUser(true);
-    const peer = new Peer({ initiator: true, trickle: false, stream });
+    const peer = new Peer({ initiator: true, trickle: true, stream });
 
     peer.on("signal", (data) => {
       console.log("this one executed");

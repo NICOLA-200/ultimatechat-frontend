@@ -103,7 +103,7 @@ export default function ProfileCard(props) {
 
       <button
         onClick={sendImage}
-        className="bg-black rounded-md w-[100px] flex-auto   text-white p-1"
+        className="bg-black rounded-md hover:bg-neutral-600 w-[100px] flex-auto   text-white p-1"
       >
         Upload
       </button>

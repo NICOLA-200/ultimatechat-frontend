@@ -34,7 +34,7 @@ export default function Profile({ notCount, showNotification }) {
             </div>
 
             <div className="flex flex-1 justify-around ">
-              <Link to={"/"} className="flex items-center justify-center">
+              <Link to={"/"} className="flex items-center hover:text-white justify-center">
                 <GoHome
                   width={100}
                   className="font-bold w-[30px] h-[30px]"
@@ -44,7 +44,7 @@ export default function Profile({ notCount, showNotification }) {
               </Link>
 
               <button
-                className="flex items-center justify-center relative"
+                className="flex items-center justify-center hover:text-white relative"
                 onClick={notificationShow}
               >
                 {notCount > 0 && (

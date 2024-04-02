@@ -8,12 +8,12 @@ export default function PeopleCard({ user, oneUser, isOne }) {
   const [friend, setFreinds] = useState([]);
   const [request, setRequest] = useState([]);
   const [confirm, setConfirm] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [ad, setAd] = useState();
 
   useEffect(() => {
     async function fetchUser() {
-      setLoading(true)
+      setLoading(true);
       const { data } = await axios.get(
         `http://localhost:3001/user/currentUser`,
         {
@@ -25,7 +25,7 @@ export default function PeopleCard({ user, oneUser, isOne }) {
       setFreinds(data.friends);
       setRequest(data.friendsRequest);
       setConfirm(data.friendConfirm);
-      setLoading(false)
+      setLoading(false);
     }
 
     fetchUser();
@@ -37,39 +37,39 @@ export default function PeopleCard({ user, oneUser, isOne }) {
   const id = user._id;
 
   const AddFriend = async () => {
-    setLoading(true)
+    setLoading(true);
     const { data } = await axios.post(
       "http://localhost:3001/user/FriendRequest",
       { id },
       { withCredentials: true }
     );
-   setLoading(false)
+    setLoading(false);
     if (data == "ok") {
       setStatus("FriendRequest");
     }
   };
 
   const ConfirmFriend = async () => {
-    setLoading(true)
+    setLoading(true);
     const { data } = await axios.post(
       "http://localhost:3001/user/FriendConfirm",
       { id },
       { withCredentials: true }
     );
-    setLoading(false)
+    setLoading(false);
     if (data == "ok") {
       setStatus("message");
     }
   };
 
   const UnRequestFriend = async () => {
-    setLoading(true)
+    setLoading(true);
     const { data } = await axios.post(
       "http://localhost:3001/user/UnRequestFriend",
       { id },
       { withCredentials: true }
     );
-    setLoading(false)
+    setLoading(false);
     if (data == "ok") {
       setStatus("add Friend");
     }
@@ -80,8 +80,8 @@ export default function PeopleCard({ user, oneUser, isOne }) {
   };
 
   const chatPage = () => {
-    isOne(user)
-  }
+    isOne(user);
+  };
 
   return (
     <div className="flex justify-between shadow-sm mt-2  p-2">
@@ -98,37 +98,37 @@ export default function PeopleCard({ user, oneUser, isOne }) {
           />
         </div>
         <button onClick={changeUser}>
-          <p className="pl-2">{user.username}</p>
+          <p className="pl-2 hover:underline">{user.username}</p>
         </button>
       </div>
 
       {friend.includes(id) ? (
         <button
-          className="bg-yellowColor p-1 px-1 rounded-md"
+          className="bg-yellowColor border-[2px] p-1 px-1 hover:bg-yellow-400 rounded-md"
           onClick={chatPage}
         >
-          {loading ? <Loading/> : "message"} 
+          {loading ? <Loading /> : "message"}
         </button>
       ) : request.includes(id) ? (
         <button
-          className="bg-yellowColor p-1 px-1 rounded-md"
+          className="bg-yellowColor border-[2px] p-1 px-1 hover:bg-yellow-400 rounded-md"
           onClick={UnRequestFriend}
         >
-        {loading ? <Loading/> : " Friend Requested"} 
+          {loading ? <Loading /> : " Friend Requested"}
         </button>
       ) : confirm.includes(id) ? (
         <button
-          className="bg-yellowColor p-1 px-1 rounded-md"
+          className="bg-yellowColor border-[2px] p-1 px-1 hover:bg-yellow-400 rounded-md"
           onClick={ConfirmFriend}
         >
-           {loading ? <Loading/> : " confirm Friend"} 
+          {loading ? <Loading /> : " confirm Friend"}
         </button>
       ) : (
         <button
-          className="bg-yellowColor p-1 px-1 rounded-md"
+          className="bg-yellowColor border-[2px] p-1 px-1 hover:bg-yellow-400 rounded-md"
           onClick={AddFriend}
         >
-         {loading ? <Loading/> : "  Add Friend "} 
+          {loading ? <Loading /> : "  Add Friend "}
         </button>
       )}
     </div>

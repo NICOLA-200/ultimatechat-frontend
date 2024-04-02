@@ -6,7 +6,9 @@ import { Store } from "../redux/store.js";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import Loading from "../components/loader/Loading.jsx"
+import Loading from "../components/loader/Loading.jsx";
+import { BsLayoutSidebar } from "react-icons/bs";
+import "../App.css"
 
 export default function SignUp() {
   const initialState = {
@@ -29,17 +31,17 @@ export default function SignUp() {
   const HandlerSubmit = (e) => {
     e.preventDefault();
     console.log("the handleSubmit has executed");
-    setLoading(true)
+    setLoading(true);
     Store.dispatch(signUp(data));
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
-    <div className=" flex justify-center items-center w-full h-[100vh] py-20 sm:py-0 bg-zinc-200 relative">
-      <div className="flex items-center sm:w-[520px] w-[80%] sm:my-0  bg-white rounded-xl shadow-lg flex-col space-y-4 relative h-auto p-10 justify-center">
+    <div className=" flex justify-center items-center w-full h-[100vh] py-20 sm:py-0 bg-zinc-100 relative">
+      <div className="flex items-center sm:w-[620px] w-[80%] sm:my-0  bg-white rounded-xl shadow-lg flex-col space-y-4 relative h-auto p-10 justify-center">
         <div className=" absolute h-[50%] w-full top-0 z-0 ">
           <div className="bg-yellowColor h-[80%] w-full"></div>
-          <div className="bg-yellowColor h-0 w-0 border-b-[100px] sm:border-l-[520px] border-l-[76.3vw] border-b-white  border-l-transparent"></div>
+          <div className="bg-yellowColor h-0 w-0 border-b-[100px] sm:border-l-[620px] border-l-[78.9vw] border-b-white  border-l-transparent"></div>
         </div>
 
         <p className="font-bold text-xl relative ">SIGN UP</p>
@@ -54,8 +56,11 @@ export default function SignUp() {
                 onChange={handleChange}
                 name="username"
                 value={data.username}
+                onFocus={() => setBorderColor("yellow")}
+                onBlur={() => setBorderColor("gray")}
                 required
-                className="bg-[#D9D9D9] p-1 rounded-md pl-2 "
+
+                className="bg-[#D9D9D9] text-neutral-600 focus:border-yellow-300 fo  p-2 text-lg border-[2px] rounded-md pl-2 "
               />
             </div>
 
@@ -69,7 +74,7 @@ export default function SignUp() {
                 name="email"
                 value={data.email}
                 required
-                className="bg-[#D9D9D9] p-1 rounded-md pl-2 "
+                className="bg-[#D9D9D9] text-neutral-600 p-2 text-lg border-[2px] rounded-md pl-2 "
               />
             </div>
 
@@ -83,7 +88,7 @@ export default function SignUp() {
                 name="password"
                 value={data.password}
                 required
-                className="bg-[#D9D9D9] p-1 rounded-md pl-2 "
+                className="bg-[#D9D9D9] text-neutral-600 p-2 text-lg border-[2px]  rounded-md pl-2 "
               />
             </div>
 
@@ -96,7 +101,7 @@ export default function SignUp() {
                 onChange={handleChange}
                 name="fullname"
                 value={data.fullname}
-                className="bg-[#D9D9D9] p-1 rounded-md pl-2 "
+                className="bg-[#D9D9D9] text-neutral-600 p-2 text-lg border-[2px]   rounded-md pl-2 "
               />
             </div>
 
@@ -109,7 +114,7 @@ export default function SignUp() {
                 onChange={handleChange}
                 name="slogan"
                 value={data.slogan}
-                className="bg-[#D9D9D9] p-1 rounded-md pl-2 "
+                className="bg-[#D9D9D9] p-2 text-neutral-600 text-lg border-[2px] border-yellow rounded-md pl-2 "
               />
             </div>
           </div>
@@ -126,7 +131,7 @@ export default function SignUp() {
             type="submit"
             value={"Sign up"}
             disabled={loading}
-            className="bg-yellowColor mt-5 text-black p-1 font-bold px-2 text-center rounded-md hover:bg-yellow-400  hover:border-yellow-300 "
+            className="bg-yellowColor mt-5  text-black p-1 font-bold px-2 text-center rounded-md hover:bg-yellow-400  hover:border-yellow-300 "
           />
         </form>
 

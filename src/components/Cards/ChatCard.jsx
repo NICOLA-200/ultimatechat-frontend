@@ -14,7 +14,6 @@ import { BsTelephone } from "react-icons/bs";
 import { GrVideo } from "react-icons/gr";
 import { HTTP } from "../../server.js";
 
-
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
@@ -47,13 +46,10 @@ export default function ChatCard({ info, id, isTwo }) {
   useEffect(() => {
     async function getallMessage() {
       setLoading(true);
-      const { data } = await axios.get(
-        `${HTTP}/message/${info._id}/${id._id}`
-      );
+      const { data } = await axios.get(`${HTTP}/message/${info._id}/${id._id}`);
       console.log(data);
-      setLoading(false)
+      setLoading(false);
       setReceivedMessage(data);
-    
     }
 
     getallMessage();
@@ -123,7 +119,7 @@ export default function ChatCard({ info, id, isTwo }) {
   const storeMessage = async (message) => {
     console.log("storage");
     axios
-      .post(`${ HTTP }/message`, message)
+      .post(`${HTTP}/message`, message)
       .then((res) => {
         console.log(res);
       })
@@ -163,7 +159,7 @@ export default function ChatCard({ info, id, isTwo }) {
     formData.append("seen", true);
     console.log(formData);
     axios
-      .post(`${ HTTP }/message`, formData)
+      .post(`${HTTP}/message`, formData)
       .then((data) => {
         console.log(data);
         setReceivedMessage((prev) => [...prev, data]);
@@ -218,7 +214,7 @@ export default function ChatCard({ info, id, isTwo }) {
 
         <div className="flex  w-[100%] h-[400px] p-0 overflow-auto">
           {!loading ? (
-            <div className="flex gap-7 py-2 flex-col w-[100%] h-[400px] items-center p-0 overflow-auto">
+            <div className="flex gap-7 py-2  flex-col w-[100%] h-[400px] items-center p-0 overflow-auto">
               {receivedMessage.map((message, index) => {
                 console.log(index);
                 if (message.sendId == myId) {
@@ -333,11 +329,11 @@ export default function ChatCard({ info, id, isTwo }) {
           </label>
 
           <button
-            className="bg-yellowColor rounded-md text-black p-1 px-4"
+            className="bg-yellowColor rounded-md border-[2px] hover:bg-yellow-300 text-black p-1 px-4"
             onClick={sendMessage}
           >
             {loading ? (
-              <div className="w-[20px] h-[20px]">
+              <div className="w-[20px] h-[20px] ">
                 <Loading />
               </div>
             ) : (

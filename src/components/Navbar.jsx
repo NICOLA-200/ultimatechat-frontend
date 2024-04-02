@@ -70,13 +70,13 @@ export default function Navbar() {
         </span>
         {isAuthenticated ? (
           <button
-            className="p-2 px-4 bg-black text-white border  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center"
+            className="p-2 px-4 bg-black text-white border font-semibold  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center"
             onClick={LogOut}
           >
             LogOut
           </button>
         ) : (
-          <button className="p-2 px-4 bg-black text-white border  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center">
+          <button className="p-2 px-4 bg-black text-white border font-semibold  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center">
             <Link className="font-bold " to={"/signup"}>
               sign in
             </Link>
@@ -120,13 +120,13 @@ export default function Navbar() {
 
             {isAuthenticated ? (
               <button
-                className="p-2 px-4 bg-black text-white border  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center"
+                className="p-2 px-4 bg-black text-white border font-semibold  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center"
                 onClick={LogOut}
               >
                 LogOut
               </button>
             ) : (
-              <button className="p-2 px-4 bg-black text-white border  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center">
+              <button className="p-2 px-4 bg-black text-white border font-semibold  hover:text-black hover:bg-white hover:border-yellow-400 rounded-xl text-center">
                 <Link className="font-bold " to={"/signup"}>
                   sign in
                 </Link>
