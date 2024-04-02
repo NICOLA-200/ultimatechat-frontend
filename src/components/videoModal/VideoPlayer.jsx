@@ -86,7 +86,7 @@ function VideoPlayer({ info, id, showVideo }) {
     const peer = new Peer({ initiator: true, trickle: true, stream });
 
     peer.on("signal", (data) => {
-      console.log("this one executed");
+      console.log("this is executed");
       socket.emit("callUser", {
         userToCall: id._id+1,
         signalData: data,
