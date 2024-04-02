@@ -6,7 +6,7 @@ import { Store } from "../redux/store.js";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import Loading from "../components/loader/loading.jsx";
+import Loading from "../components/loader/Loading.jsx"
 
 export default function SignUp() {
   const initialState = {
