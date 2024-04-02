@@ -9,7 +9,7 @@ import { useRef, useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
 import { IoCloseSharp } from "react-icons/io5";
-import Loading from "../loader/loading.jsx";
+import Loading from "../loader/Loading.jsx";
 import { BsTelephone } from "react-icons/bs";
 import { GrVideo } from "react-icons/gr";
 import { HTTP } from "../../server.js";

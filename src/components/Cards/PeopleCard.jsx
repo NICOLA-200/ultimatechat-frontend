@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import man from "../../assets/images/man.png";
 import axios from "axios";
-import Loading from "../loader/loading";
+import Loading from "../loader/Loading";
 
 export default function PeopleCard({ user, oneUser, isOne }) {
   const [status, setStatus] = useState();

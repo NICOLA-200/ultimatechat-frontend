@@ -8,7 +8,7 @@ import axios from "axios";
 import ChatCard from "../components/Cards/ChatCard.jsx";
 import VideoPlayer from "../components/videoModal/videoPlayer.jsx";
 import Notification from "../components/notification/Notification.jsx";
-import Loading from "../components/loader/loading.jsx";
+import Loading from "../components/loader/Loading.jsx";
 import { HTTP } from "../server.js";
 
 export default function Profile() {
