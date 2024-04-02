@@ -5,7 +5,7 @@ import { getUserAuth } from "../redux/actions/user.js";
 import { Store } from "../redux/store.js";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Loading from "../components/loader/loading.jsx";
+import Loading from "../components/loader/Loading.jsx";
 
 export default function Login() {
   const [username, setUsername] = useState();
