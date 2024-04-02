@@ -4,6 +4,7 @@ import { io } from "socket.io-client";
 import { IoCall } from "react-icons/io5";
 import { IoCallSharp } from "react-icons/io5";
 import Peer from "simple-peer";
+import SimplePeer from "simple-peer";
 
 
 
