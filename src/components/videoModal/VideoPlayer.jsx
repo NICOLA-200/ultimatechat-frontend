@@ -7,11 +7,11 @@ import Peer from "simple-peer";
 const socket = io("http://localhost:8800");
 
 function VideoPlayer({ info, id, showVideo }) {
-  const [callAccepted, setCallAccepted] = useState(false);
-  const [callEnded, setCallEnded] = useState(false);
-  const [stream, setStream] = useState();
-  const [name, setName] = useState("");
-  const [call, setCall] = useState({ isReceivingCall: false, from :"", name: "", signal: "" });
+  // const [callAccepted, setCallAccepted] = useState(false);
+  // const [callEnded, setCallEnded] = useState(false);
+  // const [stream, setStream] = useState();
+  // const [name, setName] = useState("");
+  const [call, setCall] = useState({});
   const [me, setMe] = useState("");
 
   const myVideo = useRef();
@@ -47,52 +47,52 @@ function VideoPlayer({ info, id, showVideo }) {
     }
   }, []);
 
-  const answerCall = () => {
-    setCallAccepted(true);
+  // const answerCall = () => {
+  //   setCallAccepted(true);
 
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+  //   const peer = new Peer({ initiator: false, trickle: false, stream });
 
-    peer.on("signal", (data) => {
-      socket.emit("answerCall", { signal: data, to: call.from });
-    });
+  //   peer.on("signal", (data) => {
+  //     socket.emit("answerCall", { signal: data, to: call.from });
+  //   });
 
-    peer.on("stream", (currentStream) => {
-      userVideo.current.srcObject = currentStream;
-    });
+  //   peer.on("stream", (currentStream) => {
+  //     userVideo.current.srcObject = currentStream;
+  //   });
 
-    peer.signal(call.signal);
+  //   peer.signal(call.signal);
 
-    connectionRef.current = peer;
-  };
+  //   connectionRef.current = peer;
+  // };
 
-  const callUser = (id) => {
-    const peer = new Peer({ initiator: true, trickle: false, stream });
+  // const callUser = (id) => {
+  //   const peer = new Peer({ initiator: true, trickle: false, stream });
 
-    peer.on("signal", (data) => {
-      socket.emit("callUser", {
-        userToCall: id,
-        signalData: data,
-        from: me,
-        name,
-      });
-    });
+  //   peer.on("signal", (data) => {
+  //     socket.emit("callUser", {
+  //       userToCall: id,
+  //       signalData: data,
+  //       from: me,
+  //       name,
+  //     });
+  //   });
 
-    useEffect(() => {
-      callUser(id);
-    }, []);
+  //   useEffect(() => {
+  //     callUser(id);
+  //   }, []);
 
-    peer.on("stream", (currentStream) => {
-      userVideo.current.srcObject = currentStream;
-    });
+  //   peer.on("stream", (currentStream) => {
+  //     userVideo.current.srcObject = currentStream;
+  //   });
 
-    socket.on("callAccepted", (signal) => {
-      setCallAccepted(true);
+  //   socket.on("callAccepted", (signal) => {
+  //     setCallAccepted(true);
 
-      peer.signal(signal);
-    });
+  //     peer.signal(signal);
+  //   });
 
-    connectionRef.current = peer;
-  };
+  //   connectionRef.current = peer;
+  // };
 
   const cancelVideo = () => {
     showVideo();
