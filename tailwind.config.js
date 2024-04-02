@@ -12,7 +12,8 @@ export default {
       screens: {
         'dif': '460px',
         'respo': '690px',
-        'bro': '540px'
+        'bro': '540px',
+        'sxl': '1140px',
       }
     },
   },

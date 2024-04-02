@@ -55,25 +55,30 @@ export default function Profile() {
   }, []);
 
   const fetchUser = async () => {
+    setLoading(true)
     const users = await axios.get(`${ HTTP }/user/`, {
       withCredentials: true,
     });
     console.log(users.data);
     setUsers(users.data);
+    setLoading(false)
     console.log("all users");
     console.log(data);
   };
 
   const fetchFriends = async () => {
+    setLoading(true)
     const users = await axios.get(`${ HTTP }/user/Friends`, {
       withCredentials: true,
     });
     console.log(users.data);
     setUsers(users.data);
+    setLoading(false)
     console.log("all users");
   };
 
   const oneUser = async (id) => {
+    
     const users = await axios.get(`${HTTP}/user/user/${id}`);
     console.log(users.data);
     setData(users.data);
@@ -142,8 +147,8 @@ export default function Profile() {
                 Active
               </button>
             </div>
-
-            {users.map((user) => {
+       
+            {loading ? <Loading /> : users.map((user) => {
               return (
                 <PeopleCard
                   key={user._id}
@@ -158,7 +163,7 @@ export default function Profile() {
 
         {one == 1 && <ProfileCard info={data} />}
         {one == 2 && <ChatCard info={data} id={id} isTwo={isTwo} />}
-        {one == 3 && <VideoPlayer showVideo={showVideo} />}
+        {one == 3 && <VideoPlayer showVideo={showVideo} info={data} id={id} />}
         {<Notification notification={notification} showNot={showNot} />}
       </div>
     </div>

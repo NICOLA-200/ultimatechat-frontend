@@ -13,6 +13,7 @@ export default function PeopleCard({ user, oneUser, isOne }) {
 
   useEffect(() => {
     async function fetchUser() {
+      setLoading(true)
       const { data } = await axios.get(
         `http://localhost:3001/user/currentUser`,
         {
@@ -24,6 +25,7 @@ export default function PeopleCard({ user, oneUser, isOne }) {
       setFreinds(data.friends);
       setRequest(data.friendsRequest);
       setConfirm(data.friendConfirm);
+      setLoading(false)
     }
 
     fetchUser();
@@ -105,7 +107,7 @@ export default function PeopleCard({ user, oneUser, isOne }) {
           className="bg-yellowColor p-1 px-1 rounded-md"
           onClick={chatPage}
         >
-          message
+          {loading ? <Loading/> : "message"} 
         </button>
       ) : request.includes(id) ? (
         <button
